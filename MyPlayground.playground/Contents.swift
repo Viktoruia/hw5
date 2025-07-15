@@ -30,3 +30,13 @@ func season(numberMonth: Int) -> Season {
 }
 
 print("Пора года \(season(numberMonth: 10))")
+
+//3. Написать метод, который принимает variadic parameter String?. (или маасив опцианальных строк [String?]) Метод возвращает
+//количество nil объектов и печатает в консоль одну строку всех объединенных не nil
+//объектов.
+
+let massString: [String?] = ["V", "i", nil, "k", nil, nil, "a"]
+let filterNil = massString.filter { $0 == nil }
+let newMassString = massString.compactMap { $0 }
+let allNewMassString = newMassString.joined(separator: "")
+print("Количество nil элементов в массиве строк равно \(filterNil.count). Новая строка - \(allNewMassString)")
