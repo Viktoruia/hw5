@@ -40,3 +40,44 @@ let filterNil = massString.filter { $0 == nil }
 let newMassString = massString.compactMap { $0 }
 let allNewMassString = newMassString.joined(separator: "")
 print("Количество nil элементов в массиве строк равно \(filterNil.count). Новая строка - \(allNewMassString)")
+
+// 4. Объявить опцианал, и сделать его разворачивание разными способами.
+
+var age: Int! = 23
+print(age + 345)
+
+// guard let
+func myName(name: String?) -> String{
+    guard let unwrapperName = name else {
+        return "Нет имени"
+    }
+    return unwrapperName
+}
+print("Мое имя - \(myName(name: nil))")
+
+// if let
+func myAge(ageMy: Int?) -> Bool {
+    if let unwrapperAge = ageMy {
+            return true
+    } else {
+        return false
+    }
+}
+print("Вы ввели свой возраст? \(myAge(ageMy: nil))")
+
+// новая конструкция, замена if let
+
+func myPets(pets: Bool?) -> String {
+    if let pets {
+        return "Ты заполнил эту строку"
+    } else {
+        return "Заполни строку"
+    }
+}
+print(myPets(pets: true))
+
+// коалесценция
+
+let petsNumbers: Int? = nil
+let otherPets: Int = petsNumbers ?? 9
+print(otherPets)
